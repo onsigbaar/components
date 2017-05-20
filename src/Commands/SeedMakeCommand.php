@@ -1,11 +1,11 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Support\Str;
-use Consigliere\Components\Support\Stub;
-use Consigliere\Components\Traits\CanClearComponentsCache;
-use Consigliere\Components\Traits\ComponentCommandTrait;
+use Onsigbaar\Components\Support\Stub;
+use Onsigbaar\Components\Traits\CanClearComponentsCache;
+use Onsigbaar\Components\Traits\ComponentCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
-use Consigliere\Components\Exceptions\FileAlreadyExistException;
-use Consigliere\Components\Generators\FileGenerator;
+use Onsigbaar\Components\Exceptions\FileAlreadyExistException;
+use Onsigbaar\Components\Generators\FileGenerator;
 
 abstract class Command extends \Illuminate\Console\Command
 {
@@ -73,7 +73,7 @@ abstract class Command extends \Illuminate\Console\Command
     /**
      * Get class namespace.
      *
-     * @param \Consigliere\Components\Component $component
+     * @param \Onsigbaar\Components\Component $component
      *
      * @return string
      */

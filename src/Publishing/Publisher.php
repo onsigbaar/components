@@ -1,11 +1,11 @@
 <?php
 
-namespace Consigliere\Components\Publishing;
+namespace Onsigbaar\Components\Publishing;
 
 use Illuminate\Console\Command;
-use Consigliere\Components\Contracts\PublisherInterface;
-use Consigliere\Components\Component;
-use Consigliere\Components\Repository;
+use Onsigbaar\Components\Contracts\PublisherInterface;
+use Onsigbaar\Components\Component;
+use Onsigbaar\Components\Repository;
 
 abstract class Publisher implements PublisherInterface
 {
@@ -19,7 +19,7 @@ abstract class Publisher implements PublisherInterface
     /**
      * The components repository instance.
      *
-     * @var \Consigliere\Components\Repository
+     * @var \Onsigbaar\Components\Repository
      */
     protected $repository;
 
@@ -88,7 +88,7 @@ abstract class Publisher implements PublisherInterface
     /**
      * Get component instance.
      *
-     * @return \Consigliere\Components\Component
+     * @return \Onsigbaar\Components\Component
      */
     public function getComponent()
     {
@@ -98,7 +98,7 @@ abstract class Publisher implements PublisherInterface
     /**
      * Set components repository instance.
      *
-     * @param \Consigliere\Components\Repository $repository
+     * @param \Onsigbaar\Components\Repository $repository
      *
      * @return $this
      */
@@ -112,7 +112,7 @@ abstract class Publisher implements PublisherInterface
     /**
      * Get components repository instance.
      *
-     * @return \Consigliere\Components\Repository
+     * @return \Onsigbaar\Components\Repository
      */
     public function getRepository()
     {

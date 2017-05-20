@@ -1,10 +1,10 @@
 <?php
 
-namespace Consigliere\Components\Providers;
+namespace Onsigbaar\Components\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Consigliere\Components\Contracts\RepositoryInterface;
-use Consigliere\Components\Repository;
+use Onsigbaar\Components\Contracts\RepositoryInterface;
+use Onsigbaar\Components\Repository;
 
 class ContractsServiceProvider extends ServiceProvider
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Generators;
+namespace Onsigbaar\Components\Generators;
 
 abstract class Generator
 {

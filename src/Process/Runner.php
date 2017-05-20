@@ -1,23 +1,23 @@
 <?php
 
-namespace Consigliere\Components\Process;
+namespace Onsigbaar\Components\Process;
 
-use Consigliere\Components\Contracts\RunableInterface;
-use Consigliere\Components\Repository;
+use Onsigbaar\Components\Contracts\RunableInterface;
+use Onsigbaar\Components\Repository;
 
 class Runner implements RunableInterface
 {
     /**
      * The component instance.
      *
-     * @var \Consigliere\Components\Repository
+     * @var \Onsigbaar\Components\Repository
      */
     protected $component;
 
     /**
      * The constructor.
      *
-     * @param \Consigliere\Components\Repository $component
+     * @param \Onsigbaar\Components\Repository $component
      */
     public function __construct(Repository $component)
     {

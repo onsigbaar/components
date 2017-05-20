@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Facades;
+namespace Onsigbaar\Components\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

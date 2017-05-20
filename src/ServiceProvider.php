@@ -1,11 +1,11 @@
 <?php
 
-namespace Consigliere\Components;
+namespace Onsigbaar\Components;
 
-use Consigliere\Components\Providers\BootstrapServiceProvider;
-use Consigliere\Components\Providers\ConsoleServiceProvider;
-use Consigliere\Components\Providers\ContractsServiceProvider;
-use Consigliere\Components\Support\Stub;
+use Onsigbaar\Components\Providers\BootstrapServiceProvider;
+use Onsigbaar\Components\Providers\ConsoleServiceProvider;
+use Onsigbaar\Components\Providers\ContractsServiceProvider;
+use Onsigbaar\Components\Support\Stub;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {

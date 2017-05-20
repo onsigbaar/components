@@ -1,10 +1,10 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Console\Command as ComponentCommand;
-use Consigliere\Components\Migrations\Seeder;
-use Consigliere\Components\Publishing\SeedPublisher;
+use Onsigbaar\Components\Migrations\Seeder;
+use Onsigbaar\Components\Publishing\SeedPublisher;
 use Symfony\Component\Console\Input\InputArgument;
 
 class PublishSeedCommand extends ComponentCommand
@@ -46,7 +46,7 @@ class PublishSeedCommand extends ComponentCommand
     /**
      * Publish migration for the specified component.
      *
-     * @param \Consigliere\Components\Component $component
+     * @param \Onsigbaar\Components\Component $component
      */
     public function publish($component)
     {

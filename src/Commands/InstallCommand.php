@@ -1,10 +1,10 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Console\Command as ComponentCommand;
-use Consigliere\Components\Json;
-use Consigliere\Components\Process\Installer;
+use Onsigbaar\Components\Json;
+use Onsigbaar\Components\Process\Installer;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

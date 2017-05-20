@@ -1,14 +1,14 @@
 <?php
 
-namespace Consigliere\Components;
+namespace Onsigbaar\Components;
 
 use Countable;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
-use Consigliere\Components\Contracts\RepositoryInterface;
-use Consigliere\Components\Exceptions\ComponentNotFoundException;
-use Consigliere\Components\Process\Installer;
-use Consigliere\Components\Process\Updater;
+use Onsigbaar\Components\Contracts\RepositoryInterface;
+use Onsigbaar\Components\Exceptions\ComponentNotFoundException;
+use Onsigbaar\Components\Process\Installer;
+use Onsigbaar\Components\Process\Updater;
 
 class Repository implements RepositoryInterface, Countable
 {

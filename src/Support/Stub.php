@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Support;
+namespace Onsigbaar\Components\Support;
 
 class Stub
 {
