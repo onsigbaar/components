@@ -1,13 +1,13 @@
 <?php
 
-namespace Consigliere\Components\Generators;
+namespace Onsigbaar\Components\Generators;
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\Console\Command as Console;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
-use Consigliere\Components\Repository;
-use Consigliere\Components\Support\Stub;
+use Onsigbaar\Components\Repository;
+use Onsigbaar\Components\Support\Stub;
 
 class ComponentGenerator extends Generator
 {

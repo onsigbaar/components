@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Traits;
+namespace Onsigbaar\Components\Traits;
 
 trait CanClearComponentsCache
 {

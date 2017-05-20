@@ -1,9 +1,9 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
-use Consigliere\Components\Support\Stub;
-use Consigliere\Components\Traits\ComponentCommandTrait;
+use Onsigbaar\Components\Support\Stub;
+use Onsigbaar\Components\Traits\ComponentCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 
 final class GenerateNotificationCommand extends Command

@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Providers;
+namespace Onsigbaar\Components\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

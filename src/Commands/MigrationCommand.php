@@ -1,12 +1,12 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Support\Str;
-use Consigliere\Components\Support\Migrations\NameParser;
-use Consigliere\Components\Support\Migrations\SchemaParser;
-use Consigliere\Components\Support\Stub;
-use Consigliere\Components\Traits\ComponentCommandTrait;
+use Onsigbaar\Components\Support\Migrations\NameParser;
+use Onsigbaar\Components\Support\Migrations\SchemaParser;
+use Onsigbaar\Components\Support\Stub;
+use Onsigbaar\Components\Traits\ComponentCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

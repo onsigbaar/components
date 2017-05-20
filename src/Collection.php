@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components;
+namespace Onsigbaar\Components;
 
 use Illuminate\Contracts\Support\Arrayable;
 

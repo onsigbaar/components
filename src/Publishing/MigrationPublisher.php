@@ -1,8 +1,8 @@
 <?php
 
-namespace Consigliere\Components\Publishing;
+namespace Onsigbaar\Components\Publishing;
 
-use Consigliere\Components\Migrations\Migrator;
+use Onsigbaar\Components\Migrations\Migrator;
 
 class MigrationPublisher extends AssetPublisher
 {

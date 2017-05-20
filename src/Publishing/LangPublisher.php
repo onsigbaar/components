@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Publishing;
+namespace Onsigbaar\Components\Publishing;
 
 class LangPublisher extends Publisher
 {

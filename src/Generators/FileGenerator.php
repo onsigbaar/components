@@ -1,9 +1,9 @@
 <?php
 
-namespace Consigliere\Components\Generators;
+namespace Onsigbaar\Components\Generators;
 
 use Illuminate\Filesystem\Filesystem;
-use Consigliere\Components\Exceptions\FileAlreadyExistException;
+use Onsigbaar\Components\Exceptions\FileAlreadyExistException;
 
 class FileGenerator extends Generator
 {

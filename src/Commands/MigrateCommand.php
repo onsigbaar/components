@@ -1,10 +1,10 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Console\Command as ComponentCommand;
-use Consigliere\Components\Migrations\Migrator;
-use Consigliere\Components\Component;
+use Onsigbaar\Components\Migrations\Migrator;
+use Onsigbaar\Components\Component;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -25,7 +25,7 @@ class MigrateCommand extends ComponentCommand
     protected $description = 'Migrate the migrations from the specified component or from all components.';
 
     /**
-     * @var \Consigliere\Components\Repository
+     * @var \Onsigbaar\Components\Repository
      */
     protected $component;
 

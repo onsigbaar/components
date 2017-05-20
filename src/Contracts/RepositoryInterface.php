@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Contracts;
+namespace Onsigbaar\Components\Contracts;
 
 interface RepositoryInterface
 {
@@ -28,7 +28,7 @@ interface RepositoryInterface
     /**
      * Get components as components collection instance.
      *
-     * @return \Consigliere\Components\Collection
+     * @return \Onsigbaar\Components\Collection
      */
     public function toCollection();
 

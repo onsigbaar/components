@@ -1,9 +1,9 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Console\Command as ComponentCommand;
-use Consigliere\Components\Generators\ComponentGenerator;
+use Onsigbaar\Components\Generators\ComponentGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

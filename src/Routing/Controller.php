@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Routing;
+namespace Onsigbaar\Components\Routing;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

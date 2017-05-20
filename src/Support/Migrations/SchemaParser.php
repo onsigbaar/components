@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Support\Migrations;
+namespace Onsigbaar\Components\Support\Migrations;
 
 use Illuminate\Contracts\Support\Arrayable;
 

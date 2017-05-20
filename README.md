@@ -28,13 +28,13 @@ vendor/
 Via Composer
 
 ``` bash
-$ composer require consigliere/components
+$ composer require onsigbaar/components
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new Consigliere\Components();
+$skeleton = new Onsigbaar\Components();
 echo $skeleton->echoPhrase('Hello, World!');
 ```
 
@@ -65,17 +65,17 @@ If you discover any security related issues, please email 50c5ac69@opayq.com ins
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/consigliere/components.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/onsigbaar/components.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/consigliere/components/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/consigliere/components.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/consigliere/components.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/consigliere/components.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/onsigbaar/components/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/onsigbaar/components.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/onsigbaar/components.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/onsigbaar/components.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/consigliere/components
-[link-travis]: https://travis-ci.org/consigliere/components
-[link-scrutinizer]: https://scrutinizer-ci.com/g/consigliere/components/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/consigliere/components
-[link-downloads]: https://packagist.org/packages/consigliere/components
-[link-author]: https://github.com/consigliere
+[link-packagist]: https://packagist.org/packages/onsigbaar/components
+[link-travis]: https://travis-ci.org/onsigbaar/components
+[link-scrutinizer]: https://scrutinizer-ci.com/g/onsigbaar/components/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/onsigbaar/components
+[link-downloads]: https://packagist.org/packages/onsigbaar/components
+[link-author]: https://github.com/onsigbaar
 [link-contributors]: ../../contributors

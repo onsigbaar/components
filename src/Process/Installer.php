@@ -1,10 +1,10 @@
 <?php
 
-namespace Consigliere\Components\Process;
+namespace Onsigbaar\Components\Process;
 
 use Illuminate\Console\Command as ComponentCommand;
 use Illuminate\Support\Str;
-use Consigliere\Components\Repository;
+use Onsigbaar\Components\Repository;
 use Symfony\Component\Process\Process;
 
 class Installer
@@ -26,7 +26,7 @@ class Installer
     /**
      * The component repository instance.
      *
-     * @var \Consigliere\Components\Repository
+     * @var \Onsigbaar\Components\Repository
      */
     protected $repository;
 
@@ -84,7 +84,7 @@ class Installer
     /**
      * Set the component repository instance.
      *
-     * @param \Consigliere\Components\Repository $repository
+     * @param \Onsigbaar\Components\Repository $repository
      *
      * @return $this
      */
@@ -98,7 +98,7 @@ class Installer
     /**
      * Set console command instance.
      *
-     * @param \Consigliere\Components\Process\Command $console
+     * @param \Onsigbaar\Components\Process\Command $console
      *
      * @return $this
      */

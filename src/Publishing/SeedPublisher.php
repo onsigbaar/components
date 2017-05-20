@@ -1,8 +1,8 @@
 <?php
 
-namespace Consigliere\Components\Publishing;
+namespace Onsigbaar\Components\Publishing;
 
-use Consigliere\Components\Migrations\Seeder;
+use Onsigbaar\Components\Migrations\Seeder;
 
 class SeedPublisher extends AssetPublisher
 {

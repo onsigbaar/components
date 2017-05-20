@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Exceptions;
+namespace Onsigbaar\Components\Exceptions;
 
 class FileAlreadyExistException extends \Exception
 {

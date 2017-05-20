@@ -1,18 +1,18 @@
 {
-  "name"        : "consigliere/components",
+  "name"        : "onsigbaar/components",
   "type"        : "library",
   "description" : "Components description.",
   "keywords"    : [
-    "consigliere",
+    "onsigbaar",
     "components"
   ],
-  "homepage"    : "https://github.com/consigliere/components",
+  "homepage"    : "https://github.com/onsigbaar/components",
   "license"     : "MIT",
   "authors"     : [
     {
       "name"    : "anonymoussc",
       "email"   : "50c5ac69@opayq.com",
-      "homepage": "https://github.com/consigliere",
+      "homepage": "https://github.com/onsigbaar",
       "role"    : "Developer"
     }
   ],
@@ -27,12 +27,12 @@
   },
   "autoload"    : {
     "psr-4": {
-      "Consigliere\\Components\\": "src"
+      "Onsigbaar\\Components\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Consigliere\\Components\\Tests\\": "tests"
+      "Onsigbaar\\Components\\Tests\\": "tests"
     }
   },
   "scripts"     : {

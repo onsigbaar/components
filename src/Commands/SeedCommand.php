@@ -1,13 +1,13 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Console\Command as ComponentCommand;
 use Illuminate\Support\Str;
 use RuntimeException;
-use Consigliere\Components\Component;
-use Consigliere\Components\Repository;
-use Consigliere\Components\Traits\ComponentCommandTrait;
+use Onsigbaar\Components\Component;
+use Onsigbaar\Components\Repository;
+use Onsigbaar\Components\Traits\ComponentCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

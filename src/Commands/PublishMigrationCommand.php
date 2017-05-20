@@ -1,10 +1,10 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Console\Command as ComponentCommand;
-use Consigliere\Components\Migrations\Migrator;
-use Consigliere\Components\Publishing\MigrationPublisher;
+use Onsigbaar\Components\Migrations\Migrator;
+use Onsigbaar\Components\Publishing\MigrationPublisher;
 use Symfony\Component\Console\Input\InputArgument;
 
 class PublishMigrationCommand extends ComponentCommand
@@ -46,7 +46,7 @@ class PublishMigrationCommand extends ComponentCommand
     /**
      * Publish migration for the specified component.
      *
-     * @param \Consigliere\Components\Component $component
+     * @param \Onsigbaar\Components\Component $component
      */
     public function publish($component)
     {

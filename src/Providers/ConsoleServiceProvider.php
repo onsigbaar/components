@@ -1,41 +1,41 @@
 <?php
 
-namespace Consigliere\Components\Providers;
+namespace Onsigbaar\Components\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Consigliere\Components\Commands\MakeCommandCommand;
-use Consigliere\Components\Commands\MakeControllerCommand;
-use Consigliere\Components\Commands\DisableCommand;
-use Consigliere\Components\Commands\DumpCommand;
-use Consigliere\Components\Commands\EnableCommand;
-use Consigliere\Components\Commands\GenerateEventCommand;
-use Consigliere\Components\Commands\GenerateJobCommand;
-use Consigliere\Components\Commands\GenerateListenerCommand;
-use Consigliere\Components\Commands\GenerateMailCommand;
-use Consigliere\Components\Commands\GenerateMiddlewareCommand;
-use Consigliere\Components\Commands\GenerateNotificationCommand;
-use Consigliere\Components\Commands\GenerateProviderCommand;
-use Consigliere\Components\Commands\GenerateRouteProviderCommand;
-use Consigliere\Components\Commands\InstallCommand;
-use Consigliere\Components\Commands\ListCommand;
-use Consigliere\Components\Commands\MakeCommand;
-use Consigliere\Components\Commands\MakeRequestCommand;
-use Consigliere\Components\Commands\MigrateCommand;
-use Consigliere\Components\Commands\MigrateRefreshCommand;
-use Consigliere\Components\Commands\MigrateResetCommand;
-use Consigliere\Components\Commands\MigrateRollbackCommand;
-use Consigliere\Components\Commands\MigrationCommand;
-use Consigliere\Components\Commands\ModelCommand;
-use Consigliere\Components\Commands\PublishAssetCommand;
-use Consigliere\Components\Commands\PublishConfigurationCommand;
-use Consigliere\Components\Commands\PublishMigrationCommand;
-use Consigliere\Components\Commands\PublishTranslationCommand;
-use Consigliere\Components\Commands\SeedCommand;
-use Consigliere\Components\Commands\SeedMakeCommand;
-use Consigliere\Components\Commands\SetupCommand;
-use Consigliere\Components\Commands\UpdateCommand;
-use Consigliere\Components\Commands\UseCommand;
-use Consigliere\Components\Commands\PublishSeedCommand;
+use Onsigbaar\Components\Commands\MakeCommandCommand;
+use Onsigbaar\Components\Commands\MakeControllerCommand;
+use Onsigbaar\Components\Commands\DisableCommand;
+use Onsigbaar\Components\Commands\DumpCommand;
+use Onsigbaar\Components\Commands\EnableCommand;
+use Onsigbaar\Components\Commands\GenerateEventCommand;
+use Onsigbaar\Components\Commands\GenerateJobCommand;
+use Onsigbaar\Components\Commands\GenerateListenerCommand;
+use Onsigbaar\Components\Commands\GenerateMailCommand;
+use Onsigbaar\Components\Commands\GenerateMiddlewareCommand;
+use Onsigbaar\Components\Commands\GenerateNotificationCommand;
+use Onsigbaar\Components\Commands\GenerateProviderCommand;
+use Onsigbaar\Components\Commands\GenerateRouteProviderCommand;
+use Onsigbaar\Components\Commands\InstallCommand;
+use Onsigbaar\Components\Commands\ListCommand;
+use Onsigbaar\Components\Commands\MakeCommand;
+use Onsigbaar\Components\Commands\MakeRequestCommand;
+use Onsigbaar\Components\Commands\MigrateCommand;
+use Onsigbaar\Components\Commands\MigrateRefreshCommand;
+use Onsigbaar\Components\Commands\MigrateResetCommand;
+use Onsigbaar\Components\Commands\MigrateRollbackCommand;
+use Onsigbaar\Components\Commands\MigrationCommand;
+use Onsigbaar\Components\Commands\ModelCommand;
+use Onsigbaar\Components\Commands\PublishAssetCommand;
+use Onsigbaar\Components\Commands\PublishConfigurationCommand;
+use Onsigbaar\Components\Commands\PublishMigrationCommand;
+use Onsigbaar\Components\Commands\PublishTranslationCommand;
+use Onsigbaar\Components\Commands\SeedCommand;
+use Onsigbaar\Components\Commands\SeedMakeCommand;
+use Onsigbaar\Components\Commands\SetupCommand;
+use Onsigbaar\Components\Commands\UpdateCommand;
+use Onsigbaar\Components\Commands\UseCommand;
+use Onsigbaar\Components\Commands\PublishSeedCommand;
 
 class ConsoleServiceProvider extends ServiceProvider
 {

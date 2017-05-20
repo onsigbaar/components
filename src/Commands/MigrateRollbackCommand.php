@@ -1,10 +1,10 @@
 <?php
 
-namespace Consigliere\Components\Commands;
+namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Console\Command as ComponentCommand;
-use Consigliere\Components\Migrations\Migrator;
-use Consigliere\Components\Traits\MigrationLoaderTrait;
+use Onsigbaar\Components\Migrations\Migrator;
+use Onsigbaar\Components\Traits\MigrationLoaderTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 

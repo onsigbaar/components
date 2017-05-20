@@ -1,16 +1,16 @@
 <?php
 
-namespace Consigliere\Components\Migrations;
+namespace Onsigbaar\Components\Migrations;
 
 use Illuminate\Support\Collection;
-use Consigliere\Components\Component;
+use Onsigbaar\Components\Component;
 
 class Seeder
 {
     /**
      * Pingpong Component instance.
      *
-     * @var \Consigliere\Components\Component
+     * @var \Onsigbaar\Components\Component
      */
     protected $component;
 
@@ -31,7 +31,7 @@ class Seeder
     /**
      * Create new instance.
      *
-     * @param \Consigliere\Components\Component $component
+     * @param \Onsigbaar\Components\Component $component
      */
     public function __construct(Component $component)
     {

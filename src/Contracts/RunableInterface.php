@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Contracts;
+namespace Onsigbaar\Components\Contracts;
 
 interface RunableInterface
 {

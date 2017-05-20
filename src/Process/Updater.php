@@ -1,6 +1,6 @@
 <?php
 
-namespace Consigliere\Components\Process;
+namespace Onsigbaar\Components\Process;
 
 class Updater extends Runner
 {
