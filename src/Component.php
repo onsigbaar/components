@@ -24,7 +24,7 @@ class Component extends ComponentServiceProvider
     protected $name;
 
     /**
-     * The component path,.
+     * The component path.
      *
      * @var string
      */
