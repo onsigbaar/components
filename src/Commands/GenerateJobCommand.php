@@ -81,6 +81,6 @@ class GenerateJobCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return 'Jobs';
+        return $this->laravel['components']->config('paths.namespace.jobs', 'Jobs');
     }
 }
