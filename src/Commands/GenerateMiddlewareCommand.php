@@ -90,6 +90,6 @@ class GenerateMiddlewareCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return 'Http\Middleware';
+        return $this->laravel['components']->config('paths.namespace.middleware', 'Http\Middleware');
     }
 }
