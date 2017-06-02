@@ -90,6 +90,6 @@ class MakeRequestCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return 'Http\Requests';
+        return $this->laravel['components']->config('paths.namespace.request', 'Http\Requests');
     }
 }
