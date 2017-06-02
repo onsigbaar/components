@@ -120,6 +120,6 @@ class ModelCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return $this->laravel['components']->config('paths.generator.model');
+        return $this->laravel['components']->config('paths.namespace.model', 'Models');
     }
 }
