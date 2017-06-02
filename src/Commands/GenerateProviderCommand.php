@@ -108,6 +108,6 @@ class GenerateProviderCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return 'Providers';
+        return $this->laravel['components']->config('paths.namespace.provider', 'Providers');
     }
 }
