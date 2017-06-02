@@ -111,7 +111,7 @@ class MakeControllerCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return 'Http\Controllers';
+        return $this->laravel['components']->config('paths.namespace.controller', 'Http\Controllers');
     }
 
     /**
