@@ -107,6 +107,6 @@ class MakeCommandCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return 'Console';
+        return $this->laravel['components']->config('paths.namespace.command', 'Console');
     }
 }
