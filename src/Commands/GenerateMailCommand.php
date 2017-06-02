@@ -81,6 +81,6 @@ class GenerateMailCommand extends Command
      */
     public function getDefaultNamespace()
     {
-        return $this->laravel['components']->config('paths.generator.emails', 'Emails');
+        return $this->laravel['components']->config('paths.namespace.emails', 'Emails');
     }
 }
