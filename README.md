@@ -9,7 +9,7 @@
 
 Modular/ component based development for laravel 5.x. 
 
-Read [Docs](http://anonymoussc.github.io/software-engineering/2017/01/18/components-docs/).
+components [Docs](http://anonymoussc.github.io/software-engineering/2017/01/18/components-docs/).
 
 ## Install
 
