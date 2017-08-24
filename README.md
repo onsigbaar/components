@@ -11,19 +11,6 @@ Modular/ component based development for laravel 5.x.
 
 Read [Docs](http://anonymoussc.github.io/software-engineering/2017/01/18/components-docs/).
 
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
-
-```
-bin/        
-config/
-src/
-test/
-vendor/
-```
-
-
 ## Install
 
 Via Composer
@@ -33,11 +20,6 @@ $ composer require onsigbaar/components
 ```
 
 ## Usage
-
-``` php
-$skeleton = new Onsigbaar\Components();
-echo $skeleton->echoPhrase('Hello, World!');
-```
 
 ## Change log
 
