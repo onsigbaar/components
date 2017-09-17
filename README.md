@@ -7,7 +7,12 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Modular/ component based development for laravel 5.x. 
+| Laravel   | Components |
+| ----------|:----------:|
+| v5.4      | ~0.3       |
+| v5.5      | ~0.4       |
+
+Modular/ component based development for Laravel v5.x. Based on [pingpong-labs/modules](https://github.com/pingpong-labs/modules). 
 
 components [Docs](http://anonymoussc.github.io/software-engineering/2017/01/18/components-docs/).
 
