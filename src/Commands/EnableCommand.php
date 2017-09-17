@@ -26,7 +26,7 @@ class EnableCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $component = $this->laravel['components']->findOrFail($this->argument('component'));
 

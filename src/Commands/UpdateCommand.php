@@ -29,7 +29,7 @@ class UpdateCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $this->laravel['components']->update($name = $this->getComponentName());
 

@@ -27,7 +27,7 @@ class UseCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $component = Str::studly($this->argument('component'));
 

@@ -34,7 +34,7 @@ class SeedCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         try {
             if ($name = $this->argument('component')) {

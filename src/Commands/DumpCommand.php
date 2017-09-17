@@ -26,7 +26,7 @@ class DumpCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $this->info('Generating optimized autoload components.');
 

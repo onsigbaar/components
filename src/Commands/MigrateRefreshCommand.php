@@ -30,7 +30,7 @@ class MigrateRefreshCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $this->call('component:migrate-reset', [
             'component'  => $this->getComponentName(),

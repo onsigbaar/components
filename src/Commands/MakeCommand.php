@@ -28,7 +28,7 @@ class MakeCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $names = $this->argument('name');
 

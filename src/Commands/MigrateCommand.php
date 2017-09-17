@@ -34,7 +34,7 @@ class MigrateCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $this->component = $this->laravel['components'];
 

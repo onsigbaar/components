@@ -28,7 +28,7 @@ class PublishTranslationCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         if ($name = $this->argument('component')) {
             return $this->publish($name);

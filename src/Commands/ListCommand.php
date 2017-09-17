@@ -26,7 +26,7 @@ class ListCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $this->table(['Name', 'Status', 'Order', 'Path'], $this->getRows());
     }

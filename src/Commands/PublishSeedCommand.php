@@ -28,7 +28,7 @@ class PublishSeedCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         if ($name = $this->argument('component')) {
             $component = $this->laravel['components']->findOrFail($name);

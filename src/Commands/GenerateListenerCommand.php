@@ -83,13 +83,13 @@ class GenerateListenerCommand extends Command
         return studly_case($this->argument('name'));
     }
 
-    public function fire()
+    public function handle()
     {
         if (!$this->option('event')) {
             return $this->error('The --event option is necessary');
         }
 
-        parent::fire();
+        parent::handle();
     }
 
     protected function getEventName(Component $component)

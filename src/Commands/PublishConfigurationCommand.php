@@ -27,7 +27,7 @@ class PublishConfigurationCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         if ($component = $this->argument('component')) {
             $this->publishConfiguration($component);

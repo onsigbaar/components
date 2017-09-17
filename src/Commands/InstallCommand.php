@@ -37,7 +37,7 @@ class InstallCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         if (is_null($this->argument('name'))) {
             $this->installFromFile();

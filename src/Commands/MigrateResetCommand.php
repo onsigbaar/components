@@ -31,7 +31,7 @@ class MigrateResetCommand extends ComponentCommand
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
         $component = $this->argument('component');
 
