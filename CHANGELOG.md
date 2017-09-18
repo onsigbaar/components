@@ -4,7 +4,7 @@ All Notable changes to `components` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## v0.4.0 - 2017-09-17
+## v0.4.0 - 2017-09-18
 
 ### Added
 - Support for laravel v5.5
