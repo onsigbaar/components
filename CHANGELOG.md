@@ -4,6 +4,26 @@ All Notable changes to `components` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## v0.4.1 - 2017-09-18
+
+### Added
+- Support for phpunit/phpunit v6
+- Support for php v7
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Nothing
+
+### Removed
+- Support for phpunit/phpunit < v5
+- Support for php v5
+
+### Security
+- Nothing
+
+
 ## v0.4.0 - 2017-09-18
 
 ### Added
