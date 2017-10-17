@@ -12,9 +12,9 @@
 | v5.4      | ~0.3       |
 | v5.5      | ~0.4       |
 
-Modular/ component based development for Laravel v5.x. Based on [pingpong-labs/modules](https://github.com/pingpong-labs/modules). 
+Modular/ component based development for Laravel. Based on [pingpong-labs/modules](https://github.com/pingpong-labs/modules). 
 
-components [Docs](http://anonymoussc.github.io/software-engineering/2017/01/18/components-docs/).
+Components [Docs](https://github.com/onsigbaar/components/wiki).
 
 ## Install
 
