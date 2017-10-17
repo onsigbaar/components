@@ -4,6 +4,23 @@ All Notable changes to `components` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## v0.4.2 - 2017-10-17
+
+### Added
+- Docs link in readme.md refer to new wikipage
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Nothing
+
+### Removed
+- Nothing
+
+### Security
+- Nothing
+
 ## v0.4.1 - 2017-09-18
 
 ### Added
