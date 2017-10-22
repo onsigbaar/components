@@ -10,7 +10,7 @@
 | Laravel   | Components |
 | ----------|:----------:|
 | v5.4      | ~0.3       |
-| v5.5      | ~0.4       |
+| v5.5      | >= ~0.4       |
 
 Modular/ component based development for Laravel. Based on [pingpong-labs/modules](https://github.com/pingpong-labs/modules). 
 
