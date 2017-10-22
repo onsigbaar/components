@@ -4,6 +4,24 @@ All Notable changes to `components` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## v0.4.3 - 2017-10-22
+
+### Added
+- Scan multiple component/api directory in default config
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Nothing
+
+### Removed
+- Nothing
+
+### Security
+- Nothing
+
+
 ## v0.4.2 - 2017-10-17
 
 ### Added
