@@ -15,7 +15,7 @@ class UpdateCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:update';
+    protected $name = 'apic:update';
 
     /**
      * The console command description.
