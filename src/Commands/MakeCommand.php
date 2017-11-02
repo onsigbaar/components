@@ -14,7 +14,7 @@ class MakeCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:make';
+    protected $name = 'apic:make';
 
     /**
      * The console command description.
