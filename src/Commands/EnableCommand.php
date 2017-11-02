@@ -12,7 +12,7 @@ class EnableCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:enable';
+    protected $name = 'apic:enable';
 
     /**
      * The console command description.
