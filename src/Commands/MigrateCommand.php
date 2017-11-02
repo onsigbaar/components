@@ -15,7 +15,7 @@ class MigrateCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:migrate';
+    protected $name = 'apic:migrate';
 
     /**
      * The console command description.
@@ -71,7 +71,7 @@ class MigrateCommand extends ComponentCommand
         ]);
 
         if ($this->option('seed')) {
-            $this->call('component:seed', ['component' => $component->getName()]);
+            $this->call('apic:seed', ['component' => $component->getName()]);
         }
     }
 
