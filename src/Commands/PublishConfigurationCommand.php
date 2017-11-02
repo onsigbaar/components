@@ -13,7 +13,7 @@ class PublishConfigurationCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:publish-config';
+    protected $name = 'apic:publish-config';
 
     /**
      * The console command description.
