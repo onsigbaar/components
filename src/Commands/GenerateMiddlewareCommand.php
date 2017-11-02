@@ -23,7 +23,7 @@ class GenerateMiddlewareCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-middleware';
+    protected $name = 'apic:make-middleware';
 
     /**
      * The console command description.
