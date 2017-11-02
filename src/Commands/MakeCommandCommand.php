@@ -24,7 +24,7 @@ class MakeCommandCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-command';
+    protected $name = 'apic:make-command';
 
     /**
      * The console command description.
