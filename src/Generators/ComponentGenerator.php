@@ -65,17 +65,11 @@ class ComponentGenerator extends Generator
      *
      * @param            $name
      * @param Repository $component
-     * @param Config $config
+     * @param Config     $config
      * @param Filesystem $filesystem
-     * @param Console $console
+     * @param Console    $console
      */
-    public function __construct(
-        $name,
-        Repository $component = null,
-        Config $config = null,
-        Filesystem $filesystem = null,
-        Console $console = null
-    )
+    public function __construct($name, Repository $component = null, Config $config = null, Filesystem $filesystem = null, Console $console = null)
     {
         $this->name       = $name;
         $this->config     = $config;
