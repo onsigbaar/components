@@ -14,7 +14,7 @@ class PublishSeedCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:publish-seed';
+    protected $name = 'apic:publish-seed';
 
     /**
      * The console command description.
