@@ -23,7 +23,7 @@ class MakeControllerCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-controller';
+    protected $name = 'apic:make-controller';
 
     /**
      * The console command description.
