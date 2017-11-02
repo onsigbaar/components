@@ -17,7 +17,7 @@ class MigrateRollbackCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:migrate-rollback';
+    protected $name = 'apic:migrate-rollback';
 
     /**
      * The console command description.
