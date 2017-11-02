@@ -19,7 +19,7 @@ class MigrationCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-migration';
+    protected $name = 'apic:make-migration';
 
     /**
      * The console command description.
