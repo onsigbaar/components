@@ -111,7 +111,7 @@ class InstallCommand extends ComponentCommand
         $installer->run();
 
         if (!$this->option('no-update')) {
-            $this->call('component:update', [
+            $this->call('apic:update', [
                 'component' => $installer->getComponentName(),
             ]);
         }
