@@ -313,19 +313,19 @@ class ComponentGenerator extends Generator
      */
     public function generateResources()
     {
-        $this->console->call('component:make-seed', [
+        $this->console->call('apic:make-seed', [
             'name'      => $this->getName(),
             'component' => $this->getName(),
             '--master'  => true,
         ]);
 
-        $this->console->call('component:make-provider', [
+        $this->console->call('apic:make-provider', [
             'name'      => $this->getName() . 'ServiceProvider',
             'component' => $this->getName(),
             '--master'  => true,
         ]);
 
-        $this->console->call('component:make-controller', [
+        $this->console->call('apic:make-controller', [
             'controller' => $this->getName() . 'Controller',
             'component'  => $this->getName(),
         ]);
