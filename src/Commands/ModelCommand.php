@@ -24,7 +24,7 @@ class ModelCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-model';
+    protected $name = 'apic:make-model';
 
     /**
      * The console command description.
