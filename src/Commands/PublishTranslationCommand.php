@@ -14,7 +14,7 @@ class PublishTranslationCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:publish-translation';
+    protected $name = 'apic:publish-translation';
 
     /**
      * The console command description.
