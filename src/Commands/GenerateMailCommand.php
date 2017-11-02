@@ -15,7 +15,7 @@ class GenerateMailCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-mail';
+    protected $name = 'apic:make-mail';
 
     /**
      * The console command description.
