@@ -18,7 +18,7 @@ class GenerateEventCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-event';
+    protected $name = 'apic:make-event';
 
     /**
      * The console command description.
