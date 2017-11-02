@@ -15,7 +15,7 @@ class GenerateJobCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-job';
+    protected $name = 'apic:make-job';
 
     /**
      * The console command description.
