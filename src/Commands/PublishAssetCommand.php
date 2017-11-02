@@ -14,7 +14,7 @@ class PublishAssetCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:publish-asset';
+    protected $name = 'apic:publish-asset';
 
     /**
      * The console command description.
