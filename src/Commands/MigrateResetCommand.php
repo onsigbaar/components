@@ -17,7 +17,7 @@ class MigrateResetCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:migrate-reset';
+    protected $name = 'apic:migrate-reset';
 
     /**
      * The console command description.
