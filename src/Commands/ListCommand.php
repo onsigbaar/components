@@ -12,7 +12,7 @@ class ListCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:list';
+    protected $name = 'apic:list';
 
     /**
      * The console command description.
