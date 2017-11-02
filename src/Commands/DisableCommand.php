@@ -12,7 +12,7 @@ class DisableCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:disable';
+    protected $name = 'apic:disable';
 
     /**
      * The console command description.
