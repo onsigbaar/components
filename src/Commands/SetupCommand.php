@@ -11,7 +11,7 @@ class SetupCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:setup';
+    protected $name = 'apic:setup';
 
     /**
      * The console command description.
