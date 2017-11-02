@@ -93,7 +93,7 @@ class Seeder
             return [];
         }
 
-        $files = array_map(function ($file) {
+        $files = array_map(function($file) {
             return str_replace('.php', '', basename($file));
 
         }, $files);
