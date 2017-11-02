@@ -24,7 +24,7 @@ class GenerateProviderCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-provider';
+    protected $name = 'apic:make-provider';
 
     /**
      * The console command description.
