@@ -20,7 +20,7 @@ class SeedCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:seed';
+    protected $name = 'apic:seed';
 
     /**
      * The console command description.
