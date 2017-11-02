@@ -23,7 +23,7 @@ class MakeRequestCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-request';
+    protected $name = 'apic:make-request';
 
     /**
      * The console command description.
