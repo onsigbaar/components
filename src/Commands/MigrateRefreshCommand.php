@@ -16,7 +16,7 @@ class MigrateRefreshCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:migrate-refresh';
+    protected $name = 'apic:migrate-refresh';
 
     /**
      * The console command description.
@@ -32,20 +32,20 @@ class MigrateRefreshCommand extends ComponentCommand
      */
     public function handle()
     {
-        $this->call('component:migrate-reset', [
+        $this->call('apic:migrate-reset', [
             'component'  => $this->getComponentName(),
             '--database' => $this->option('database'),
             '--force'    => $this->option('force'),
         ]);
 
-        $this->call('component:migrate', [
+        $this->call('apic:migrate', [
             'component'  => $this->getComponentName(),
             '--database' => $this->option('database'),
             '--force'    => $this->option('force'),
         ]);
 
         if ($this->option('seed')) {
-            $this->call('component:seed', [
+            $this->call('apic:seed', [
                 'component' => $this->getComponentName(),
             ]);
         }
