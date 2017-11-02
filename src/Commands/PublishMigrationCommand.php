@@ -14,7 +14,7 @@ class PublishMigrationCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:publish-migration';
+    protected $name = 'apic:publish-migration';
 
     /**
      * The console command description.
