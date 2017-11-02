@@ -54,7 +54,7 @@ return [
         ],
     ],
 
-    'paths' => [
+    'paths'    => [
         /*
         |--------------------------------------------------------------------------
         | Components path
@@ -83,7 +83,7 @@ return [
         | The migrations path
         |--------------------------------------------------------------------------
         |
-        | Where you run 'component:publish-migration' command, where do you publish the
+        | Where you run 'apic:publish-migration' command, where do you publish the
         | the migration files?
         |
         */
@@ -94,7 +94,7 @@ return [
         | The seeds path
         |--------------------------------------------------------------------------
         |
-        | Where you run 'component:publish-seed' command, where do you publish the
+        | Where you run 'apic:publish-seed' command, where do you publish the
         | the seed files?
         |
         */
@@ -171,7 +171,7 @@ return [
     | directory. This is useful if you host the package in packagist website.
     |
     */
-    'scan'  => [
+    'scan'     => [
         'enabled' => true,
         'paths'   => [
             base_path('app/Components/*'),
