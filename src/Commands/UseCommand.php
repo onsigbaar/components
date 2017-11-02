@@ -13,7 +13,7 @@ class UseCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'component:use';
+    protected $name = 'apic:use';
 
     /**
      * The console command description.
