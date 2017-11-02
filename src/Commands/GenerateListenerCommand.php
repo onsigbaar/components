@@ -19,7 +19,7 @@ class GenerateListenerCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-listener';
+    protected $name = 'apic:make-listener';
 
     /**
      * The console command description.
