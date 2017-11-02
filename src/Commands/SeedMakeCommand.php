@@ -20,7 +20,7 @@ class SeedMakeCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-seed';
+    protected $name = 'apic:make-seed';
 
     /**
      * The console command description.
