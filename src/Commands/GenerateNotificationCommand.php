@@ -15,7 +15,7 @@ final class GenerateNotificationCommand extends Command
      *
      * @var string
      */
-    protected $name = 'component:make-notification';
+    protected $name = 'apic:make-notification';
 
     protected $argumentName = 'name';
 
