@@ -2,6 +2,8 @@
 
 namespace Onsigbaar\Components\Publishing;
 
+use Onsigbaar\Components\Support\Config\GenerateConfigReader;
+
 class AssetPublisher extends Publisher
 {
     /**
@@ -18,11 +20,7 @@ class AssetPublisher extends Publisher
      */
     public function getDestinationPath()
     {
-        if ($this->repository->config('merge.published-assets')) {
-            return $this->repository->assetPath('');
-        }
-
-        return $this->repository->assetPath($this->component->getLowerName());
+        return $this->repository->assetPath($this->module->getLowerName());
     }
 
     /**
@@ -32,8 +30,8 @@ class AssetPublisher extends Publisher
      */
     public function getSourcePath()
     {
-        return $this->getComponent()->getExtraPath(
-            $this->repository->config('paths.generator.assets')
+        return $this->getModule()->getExtraPath(
+            GenerateConfigReader::read('assets')->getPath()
         );
     }
 }

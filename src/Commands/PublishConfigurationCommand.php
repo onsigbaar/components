@@ -2,65 +2,63 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class PublishConfigurationCommand extends ComponentCommand
+class PublishConfigurationCommand extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'apic:publish-config';
+    protected $name = 'component:publish-config';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish a component\'s config files to the application';
+    protected $description = 'Publish a module\'s config files to the application';
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        if ($component = $this->argument('component')) {
-            $this->publishConfiguration($component);
+        if ($module = $this->argument('module')) {
+            $this->publishConfiguration($module);
 
             return;
         }
 
-        foreach ($this->laravel['components']->enabled() as $component) {
-            $this->publishConfiguration($component->getName());
+        foreach ($this->laravel['modules']->allEnabled() as $module) {
+            $this->publishConfiguration($module->getName());
         }
     }
 
     /**
-     * @param string $component
-     *
+     * @param string $module
      * @return string
      */
-    private function getServiceProviderForComponent($component)
+    private function getServiceProviderForModule($module)
     {
-        $studlyName = studly_case($component);
+        $namespace = $this->laravel['config']->get('modules.namespace');
+        $studlyName = studly_case($module);
 
-        return "Components\\$studlyName\\Providers\\{$studlyName}ServiceProvider";
+        return "$namespace\\$studlyName\\Providers\\{$studlyName}ServiceProvider";
     }
 
     /**
-     * @param string $component
+     * @param string $module
      */
-    private function publishConfiguration($component)
+    private function publishConfiguration($module)
     {
         $this->call('vendor:publish', [
-            '--provider' => $this->getServiceProviderForComponent($component),
-            '--force'    => $this->option('force'),
-            '--tag'      => ['config'],
+            '--provider' => $this->getServiceProviderForModule($module),
+            '--force' => $this->option('force'),
+            '--tag' => ['config'],
         ]);
     }
 
@@ -72,7 +70,7 @@ class PublishConfigurationCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::OPTIONAL, 'The name of component being used.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module being used.'],
         ];
     }
 

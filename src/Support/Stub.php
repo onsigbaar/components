@@ -33,7 +33,7 @@ class Stub
      */
     public function __construct($path, array $replaces = [])
     {
-        $this->path     = $path;
+        $this->path = $path;
         $this->replaces = $replaces;
     }
 
@@ -48,23 +48,6 @@ class Stub
     public static function create($path, array $replaces = [])
     {
         return new static($path, $replaces);
-    }
-
-    /**
-     * Create new self instance from full path.
-     *
-     * @param string $path
-     * @param array  $replaces
-     *
-     * @return self
-     */
-    public static function createFromPath($path, array $replaces = [])
-    {
-        $stub = static::create($path, $replaces);
-
-        $stub->setBasePath('');
-
-        return $stub;
     }
 
     /**
@@ -88,7 +71,9 @@ class Stub
      */
     public function getPath()
     {
-        return static::getBasePath() . $this->path;
+        $path = static::getBasePath() . $this->path;
+
+        return file_exists($path) ? $path : __DIR__ . '/../Commands/stubs' . $this->path;
     }
 
     /**

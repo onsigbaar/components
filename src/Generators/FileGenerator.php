@@ -31,14 +31,14 @@ class FileGenerator extends Generator
     /**
      * The constructor.
      *
-     * @param      $path
-     * @param      $contents
+     * @param $path
+     * @param $contents
      * @param null $filesystem
      */
     public function __construct($path, $contents, $filesystem = null)
     {
-        $this->path       = $path;
-        $this->contents   = $contents;
+        $this->path = $path;
+        $this->contents = $contents;
         $this->filesystem = $filesystem ?: new Filesystem();
     }
 
@@ -79,7 +79,7 @@ class FileGenerator extends Generator
     /**
      * Set filesystem.
      *
-     * @param null $filesystem
+     * @param Filesystem $filesystem
      *
      * @return $this
      */

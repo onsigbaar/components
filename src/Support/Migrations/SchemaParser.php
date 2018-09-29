@@ -11,11 +11,10 @@ class SchemaParser implements Arrayable
      *
      * @var array
      */
-    protected $customAttributes
-        = [
-            'remember_token' => 'rememberToken()',
-            'soft_delete'    => 'softDeletes()',
-        ];
+    protected $customAttributes = [
+        'remember_token' => 'rememberToken()',
+        'soft_delete' => 'softDeletes()',
+    ];
 
     /**
      * The migration schema.
@@ -29,7 +28,9 @@ class SchemaParser implements Arrayable
      *
      * @var array
      */
-    protected $relationshipKeys = ['belongsTo'];
+    protected $relationshipKeys = [
+        'belongsTo',
+    ];
 
     /**
      * Create new instance.
@@ -126,7 +127,7 @@ class SchemaParser implements Arrayable
 
         foreach ($this->toArray() as $column => $attributes) {
             $attributes = [head($attributes)];
-            $results    .= $this->createField($column, $attributes, 'remove');
+            $results .= $this->createField($column, $attributes, 'remove');
         }
 
         return $results;
@@ -137,6 +138,7 @@ class SchemaParser implements Arrayable
      *
      * @param string $column
      * @param array  $attributes
+     * @param string $type
      *
      * @return string
      */
@@ -152,7 +154,7 @@ class SchemaParser implements Arrayable
             }
         }
 
-        return $results .= ';' . PHP_EOL;
+        return $results . ';' . PHP_EOL;
     }
 
     /**
@@ -265,6 +267,6 @@ class SchemaParser implements Arrayable
      */
     public function getCustomAttribute($column)
     {
-        return (array)$this->customAttributes[$column];
+        return (array) $this->customAttributes[$column];
     }
 }

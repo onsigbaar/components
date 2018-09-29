@@ -2,51 +2,49 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
-use Onsigbaar\Components\Traits\ComponentCommandTrait;
+use Illuminate\Console\Command;
+use Onsigbaar\Components\Traits\ModuleCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class MigrateRefreshCommand extends ComponentCommand
+class MigrateRefreshCommand extends Command
 {
-    use ComponentCommandTrait;
+    use ModuleCommandTrait;
 
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'apic:migrate-refresh';
+    protected $name = 'component:migrate-refresh';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Rollback & re-migrate the components migrations.';
+    protected $description = 'Rollback & re-migrate the modules migrations.';
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        $this->call('apic:migrate-reset', [
-            'component'  => $this->getComponentName(),
+        $this->call('component:migrate-reset', [
+            'module' => $this->getModuleName(),
             '--database' => $this->option('database'),
-            '--force'    => $this->option('force'),
+            '--force' => $this->option('force'),
         ]);
 
-        $this->call('apic:migrate', [
-            'component'  => $this->getComponentName(),
+        $this->call('component:migrate', [
+            'module' => $this->getModuleName(),
             '--database' => $this->option('database'),
-            '--force'    => $this->option('force'),
+            '--force' => $this->option('force'),
         ]);
 
         if ($this->option('seed')) {
-            $this->call('apic:seed', [
-                'component' => $this->getComponentName(),
+            $this->call('component:seed', [
+                'module' => $this->getModuleName(),
             ]);
         }
     }
@@ -59,7 +57,7 @@ class MigrateRefreshCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::OPTIONAL, 'The name of component will be used.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module will be used.'],
         ];
     }
 
@@ -75,5 +73,18 @@ class MigrateRefreshCommand extends ComponentCommand
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
             ['seed', null, InputOption::VALUE_NONE, 'Indicates if the seed task should be re-run.'],
         ];
+    }
+
+    public function getModuleName()
+    {
+        $module = $this->argument('module');
+
+        $module = app('modules')->find($module);
+
+        if ($module === null) {
+            return $module;
+        }
+
+        return $module->getStudlyName();
     }
 }

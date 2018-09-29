@@ -11,8 +11,9 @@
 | ----------|:----------:|
 | v5.4      | ~0.3       |
 | v5.5      | >= ~0.4       |
+| v5.7      | >= ~0.6       |
 
-Modular/ component based development for Laravel. Based on [pingpong-labs/modules](https://github.com/pingpong-labs/modules). 
+Modular/ component based development for Laravel. Based on [nWidart/laravel-modules](https://github.com/nWidart/laravel-modules). 
 
 Components [Docs](https://github.com/onsigbaar/components/wiki).
 
@@ -35,10 +36,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ``` bash
 $ composer test
 ```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
 
 ## Security
 

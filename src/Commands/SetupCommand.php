@@ -2,44 +2,43 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
+use Illuminate\Console\Command;
 
-class SetupCommand extends ComponentCommand
+class SetupCommand extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'apic:setup';
+    protected $name = 'component:setup';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Setting up components folders for first use.';
+    protected $description = 'Setting up modules folders for first use.';
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        $this->generateComponentsFolder();
+        $this->generateModulesFolder();
 
         $this->generateAssetsFolder();
     }
 
     /**
-     * Generate the components folder.
+     * Generate the modules folder.
      */
-    public function generateComponentsFolder()
+    public function generateModulesFolder()
     {
-        $this->generateDirectory($this->laravel['components']->config('paths.components'),
-            'Components directory created successfully',
-            'Components directory already exist'
+        $this->generateDirectory(
+            $this->laravel['modules']->config('paths.modules'),
+            'Modules directory created successfully',
+            'Modules directory already exist'
         );
     }
 
@@ -48,7 +47,8 @@ class SetupCommand extends ComponentCommand
      */
     public function generateAssetsFolder()
     {
-        $this->generateDirectory($this->laravel['components']->config('paths.assets'),
+        $this->generateDirectory(
+            $this->laravel['modules']->config('paths.assets'),
             'Assets directory created successfully',
             'Assets directory already exist'
         );
@@ -64,7 +64,7 @@ class SetupCommand extends ComponentCommand
     protected function generateDirectory($dir, $success, $error)
     {
         if (!$this->laravel['files']->isDirectory($dir)) {
-            $this->laravel['files']->makeDirectory($dir);
+            $this->laravel['files']->makeDirectory($dir, 0755, true, true);
 
             $this->info($success);
 

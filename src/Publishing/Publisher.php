@@ -4,22 +4,21 @@ namespace Onsigbaar\Components\Publishing;
 
 use Illuminate\Console\Command;
 use Onsigbaar\Components\Contracts\PublisherInterface;
-use Onsigbaar\Components\Component;
-use Onsigbaar\Components\Repository;
+use Onsigbaar\Components\Contracts\RepositoryInterface;
+use Onsigbaar\Components\Module;
 
 abstract class Publisher implements PublisherInterface
 {
     /**
-     * The name of component will used.
+     * The name of module will used.
      *
      * @var string
      */
-    protected $component;
+    protected $module;
 
     /**
-     * The components repository instance.
-     *
-     * @var \Onsigbaar\Components\Repository
+     * The modules repository instance.
+     * @var RepositoryInterface
      */
     protected $repository;
 
@@ -54,11 +53,11 @@ abstract class Publisher implements PublisherInterface
     /**
      * The constructor.
      *
-     * @param Component $component
+     * @param Module $module
      */
-    public function __construct(Component $component)
+    public function __construct(Module $module)
     {
-        $this->component = $component;
+        $this->module = $module;
     }
 
     /**
@@ -86,23 +85,21 @@ abstract class Publisher implements PublisherInterface
     }
 
     /**
-     * Get component instance.
+     * Get module instance.
      *
-     * @return \Onsigbaar\Components\Component
+     * @return \Onsigbaar\Components\Module
      */
-    public function getComponent()
+    public function getModule()
     {
-        return $this->component;
+        return $this->module;
     }
 
     /**
-     * Set components repository instance.
-     *
-     * @param \Onsigbaar\Components\Repository $repository
-     *
+     * Set modules repository instance.
+     * @param RepositoryInterface $repository
      * @return $this
      */
-    public function setRepository(Repository $repository)
+    public function setRepository(RepositoryInterface $repository)
     {
         $this->repository = $repository;
 
@@ -110,9 +107,9 @@ abstract class Publisher implements PublisherInterface
     }
 
     /**
-     * Get components repository instance.
+     * Get modules repository instance.
      *
-     * @return \Onsigbaar\Components\Repository
+     * @return RepositoryInterface
      */
     public function getRepository()
     {
@@ -188,7 +185,7 @@ abstract class Publisher implements PublisherInterface
 
         if ($this->getFilesystem()->copyDirectory($sourcePath, $destinationPath)) {
             if ($this->showMessage === true) {
-                $this->console->line("<info>Published</info>: {$this->component->getStudlyName()}");
+                $this->console->line("<info>Published</info>: {$this->module->getStudlyName()}");
             }
         } else {
             $this->console->error($this->error);

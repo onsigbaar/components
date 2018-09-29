@@ -2,6 +2,8 @@
 
 namespace Onsigbaar\Components\Publishing;
 
+use Onsigbaar\Components\Support\Config\GenerateConfigReader;
+
 class LangPublisher extends Publisher
 {
     /**
@@ -18,7 +20,7 @@ class LangPublisher extends Publisher
      */
     public function getDestinationPath()
     {
-        $name = $this->component->getLowerName();
+        $name = $this->module->getLowerName();
 
         return base_path("resources/lang/{$name}");
     }
@@ -30,8 +32,8 @@ class LangPublisher extends Publisher
      */
     public function getSourcePath()
     {
-        return $this->getComponent()->getExtraPath(
-            $this->repository->config('paths.generator.lang')
+        return $this->getModule()->getExtraPath(
+            GenerateConfigReader::read('lang')->getPath()
         );
     }
 }

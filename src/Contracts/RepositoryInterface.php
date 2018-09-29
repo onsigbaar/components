@@ -5,28 +5,28 @@ namespace Onsigbaar\Components\Contracts;
 interface RepositoryInterface
 {
     /**
-     * Get all components.
+     * Get all modules.
      *
      * @return mixed
      */
     public function all();
 
     /**
-     * Get cached components.
+     * Get cached modules.
      *
      * @return array
      */
     public function getCached();
 
     /**
-     * Scan & get all available components.
+     * Scan & get all available modules.
      *
      * @return array
      */
     public function scan();
 
     /**
-     * Get components as components collection instance.
+     * Get modules as modules collection instance.
      *
      * @return \Onsigbaar\Components\Collection
      */
@@ -40,35 +40,35 @@ interface RepositoryInterface
     public function getScanPaths();
 
     /**
-     * Get list of enabled components.
+     * Get list of enabled modules.
      *
      * @return mixed
      */
-    public function enabled();
+    public function allEnabled();
 
     /**
-     * Get list of disabled components.
+     * Get list of disabled modules.
      *
      * @return mixed
      */
-    public function disabled();
+    public function allDisabled();
 
     /**
-     * Get count from all components.
+     * Get count from all modules.
      *
      * @return int
      */
     public function count();
 
     /**
-     * Get all ordered components.
-     *
+     * Get all ordered modules.
+     * @param string $direction
      * @return mixed
      */
-    public function getOrdered();
+    public function getOrdered($direction = 'asc');
 
     /**
-     * Get components by the given status.
+     * Get modules by the given status.
      *
      * @param int $status
      *
@@ -77,7 +77,7 @@ interface RepositoryInterface
     public function getByStatus($status);
 
     /**
-     * Find a specific component.
+     * Find a specific module.
      *
      * @param $name
      *
@@ -86,11 +86,18 @@ interface RepositoryInterface
     public function find($name);
 
     /**
-     * Find a specific component. If there return that, otherwise throw exception.
+     * Find a specific module. If there return that, otherwise throw exception.
      *
      * @param $name
      *
      * @return mixed
      */
     public function findOrFail($name);
+
+    public function getModulePath($moduleName);
+
+    /**
+     * @return \Illuminate\Filesystem\Filesystem
+     */
+    public function getFiles();
 }

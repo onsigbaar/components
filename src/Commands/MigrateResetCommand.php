@@ -2,13 +2,13 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
+use Illuminate\Console\Command;
 use Onsigbaar\Components\Migrations\Migrator;
 use Onsigbaar\Components\Traits\MigrationLoaderTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class MigrateResetCommand extends ComponentCommand
+class MigrateResetCommand extends Command
 {
     use MigrationLoaderTrait;
 
@@ -17,49 +17,54 @@ class MigrateResetCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $name = 'apic:migrate-reset';
+    protected $name = 'component:migrate-reset';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Reset the components migrations.';
+    protected $description = 'Reset the modules migrations.';
+
+    /**
+     * @var \Onsigbaar\Components\Contracts\RepositoryInterface
+     */
+    protected $module;
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        $component = $this->argument('component');
+        $this->module = $this->laravel['modules'];
 
-        if (!empty($component)) {
-            $this->reset($component);
+        $name = $this->argument('module');
+
+        if (!empty($name)) {
+            $this->reset($name);
 
             return;
         }
 
-        foreach (array_reverse($this->laravel['components']->all()) as $component) {
-            $this->line('Running for component: <info>' . $component->getName() . '</info>');
+        foreach ($this->module->getOrdered($this->option('direction')) as $module) {
+            $this->line('Running for component: <info>' . $module->getName() . '</info>');
 
-            $this->reset($component);
+            $this->reset($module);
         }
     }
 
     /**
-     * Rollback migration from the specified component.
+     * Rollback migration from the specified module.
      *
-     * @param $component
+     * @param $module
      */
-    public function reset($component)
+    public function reset($module)
     {
-        if (is_string($component)) {
-            $component = $this->laravel['components']->findOrFail($component);
+        if (is_string($module)) {
+            $module = $this->module->findOrFail($module);
         }
 
-        $migrator = new Migrator($component);
+        $migrator = new Migrator($module);
 
         $database = $this->option('database');
 
@@ -88,7 +93,7 @@ class MigrateResetCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::OPTIONAL, 'The name of component will be used.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module will be used.'],
         ];
     }
 
@@ -100,6 +105,7 @@ class MigrateResetCommand extends ComponentCommand
     protected function getOptions()
     {
         return [
+            ['direction', 'd', InputOption::VALUE_OPTIONAL, 'The direction of ordering.', 'desc'],
             ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to use.'],
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
             ['pretend', null, InputOption::VALUE_NONE, 'Dump the SQL queries that would be run.'],

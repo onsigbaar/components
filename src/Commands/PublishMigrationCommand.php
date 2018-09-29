@@ -2,56 +2,54 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
+use Illuminate\Console\Command;
 use Onsigbaar\Components\Migrations\Migrator;
 use Onsigbaar\Components\Publishing\MigrationPublisher;
 use Symfony\Component\Console\Input\InputArgument;
 
-class PublishMigrationCommand extends ComponentCommand
+class PublishMigrationCommand extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'apic:publish-migration';
+    protected $name = 'component:publish-migration';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = "Publish a component's migrations to the application";
+    protected $description = "Publish a module's migrations to the application";
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        if ($name = $this->argument('component')) {
-            $component = $this->laravel['components']->findOrFail($name);
+        if ($name = $this->argument('module')) {
+            $module = $this->laravel['modules']->findOrFail($name);
 
-            $this->publish($component);
+            $this->publish($module);
 
             return;
         }
 
-        foreach ($this->laravel['components']->enabled() as $component) {
-            $this->publish($component);
+        foreach ($this->laravel['modules']->allEnabled() as $module) {
+            $this->publish($module);
         }
     }
 
     /**
-     * Publish migration for the specified component.
+     * Publish migration for the specified module.
      *
-     * @param \Onsigbaar\Components\Component $component
+     * @param \Onsigbaar\Components\Module $module
      */
-    public function publish($component)
+    public function publish($module)
     {
-        with(new MigrationPublisher(new Migrator($component)))
-            ->setRepository($this->laravel['components'])
+        with(new MigrationPublisher(new Migrator($module)))
+            ->setRepository($this->laravel['modules'])
             ->setConsole($this)
             ->publish();
     }
@@ -64,7 +62,7 @@ class PublishMigrationCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::OPTIONAL, 'The name of component being used.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module being used.'],
         ];
     }
 }

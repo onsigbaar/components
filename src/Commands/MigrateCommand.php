@@ -2,32 +2,32 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
+use Illuminate\Console\Command;
 use Onsigbaar\Components\Migrations\Migrator;
-use Onsigbaar\Components\Component;
+use Onsigbaar\Components\Module;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class MigrateCommand extends ComponentCommand
+class MigrateCommand extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'apic:migrate';
+    protected $name = 'component:migrate';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Migrate the migrations from the specified component or from all components.';
+    protected $description = 'Migrate the migrations from the specified module or from all modules.';
 
     /**
-     * @var \Onsigbaar\Components\Repository
+     * @var \Onsigbaar\Components\Contracts\RepositoryInterface
      */
-    protected $component;
+    protected $module;
 
     /**
      * Execute the console command.
@@ -36,42 +36,45 @@ class MigrateCommand extends ComponentCommand
      */
     public function handle()
     {
-        $this->component = $this->laravel['components'];
+        $this->module = $this->laravel['modules'];
 
-        $name = $this->argument('component');
+        $name = $this->argument('module');
 
         if ($name) {
-            $component = $this->component->findOrFail($name);
+            $module = $this->module->findOrFail($name);
 
-            return $this->migrate($component);
+            return $this->migrate($module);
         }
 
-        foreach ($this->component->getOrdered($this->option('direction')) as $component) {
-            $this->line('Running for component: <info>' . $component->getName() . '</info>');
+        foreach ($this->module->getOrdered($this->option('direction')) as $module) {
+            $this->line('Running for component: <info>' . $module->getName() . '</info>');
 
-            $this->migrate($component);
+            $this->migrate($module);
         }
     }
 
     /**
-     * Run the migration from the specified component.
+     * Run the migration from the specified module.
      *
-     * @param Component $component
-     *
-     * @return mixed
+     * @param Module $module
      */
-    protected function migrate(Component $component)
+    protected function migrate(Module $module)
     {
-        $path = str_replace(base_path(), '', (new Migrator($component))->getPath());
+        $path = str_replace(base_path(), '', (new Migrator($module))->getPath());
+
+        if ($this->option('subpath')) {
+            $path = $path . "/" . $this->option("subpath");
+        }
+
         $this->call('migrate', [
-            '--path'     => $path,
+            '--path' => $path,
             '--database' => $this->option('database'),
-            '--pretend'  => $this->option('pretend'),
-            '--force'    => $this->option('force'),
+            '--pretend' => $this->option('pretend'),
+            '--force' => $this->option('force'),
         ]);
 
         if ($this->option('seed')) {
-            $this->call('apic:seed', ['component' => $component->getName()]);
+            $this->call('component:seed', ['module' => $module->getName()]);
         }
     }
 
@@ -83,7 +86,7 @@ class MigrateCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::OPTIONAL, 'The name of component will be used.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module will be used.'],
         ];
     }
 
@@ -100,6 +103,7 @@ class MigrateCommand extends ComponentCommand
             ['pretend', null, InputOption::VALUE_NONE, 'Dump the SQL queries that would be run.'],
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when in production.'],
             ['seed', null, InputOption::VALUE_NONE, 'Indicates if the seed task should be re-run.'],
+            ['subpath', null, InputOption::VALUE_OPTIONAL, 'Indicate a subpath to run your migrations from'],
         ];
     }
 }

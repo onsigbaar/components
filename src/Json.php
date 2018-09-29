@@ -3,6 +3,7 @@
 namespace Onsigbaar\Components;
 
 use Illuminate\Filesystem\Filesystem;
+use Onsigbaar\Components\Exceptions\InvalidJsonException;
 
 class Json
 {
@@ -35,7 +36,7 @@ class Json
      */
     public function __construct($path, Filesystem $filesystem = null)
     {
-        $this->path       = (string)$path;
+        $this->path = (string) $path;
         $this->filesystem = $filesystem ?: new Filesystem();
         $this->attributes = Collection::make($this->getAttributes());
     }
@@ -83,7 +84,7 @@ class Json
      */
     public function setPath($path)
     {
-        $this->path = (string)$path;
+        $this->path = (string) $path;
 
         return $this;
     }
@@ -113,17 +114,24 @@ class Json
 
     /**
      * Get file contents as array.
-     *
      * @return array
+     * @throws \Exception
      */
     public function getAttributes()
     {
-        if (config('components.cache.enabled') === false) {
-            return json_decode($this->getContents(), 1);
+        $attributes = json_decode($this->getContents(), 1);
+
+        // any JSON parsing errors should throw an exception
+        if (json_last_error() > 0) {
+            throw new InvalidJsonException('Error processing file: ' . $this->getPath() . '. Error: ' . json_last_error_msg());
         }
 
-        return app('cache')->remember($this->getPath(), config('components.cache.lifetime'), function () {
-            return json_decode($this->getContents(), 1);
+        if (config('modules.cache.enabled') === false) {
+            return $attributes;
+        }
+
+        return app('cache')->remember($this->getPath(), config('modules.cache.lifetime'), function () use ($attributes) {
+            return $attributes;
         });
     }
 
@@ -193,7 +201,7 @@ class Json
     /**
      * Get the specified attribute from json file.
      *
-     * @param      $key
+     * @param $key
      * @param null $default
      *
      * @return mixed

@@ -13,13 +13,12 @@ class MigrationPublisher extends AssetPublisher
 
     /**
      * MigrationPublisher constructor.
-     *
      * @param Migrator $migrator
      */
     public function __construct(Migrator $migrator)
     {
         $this->migrator = $migrator;
-        parent::__construct($migrator->getComponent());
+        parent::__construct($migrator->getModule());
     }
 
     /**

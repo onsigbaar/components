@@ -4,7 +4,7 @@ namespace Onsigbaar\Components\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Onsigbaar\Components\Contracts\RepositoryInterface;
-use Onsigbaar\Components\Repository;
+use Onsigbaar\Components\Laravel\LaravelFileRepository;
 
 class ContractsServiceProvider extends ServiceProvider
 {
@@ -13,6 +13,6 @@ class ContractsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(RepositoryInterface::class, Repository::class);
+        $this->app->bind(RepositoryInterface::class, LaravelFileRepository::class);
     }
 }

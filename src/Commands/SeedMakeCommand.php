@@ -3,15 +3,16 @@
 namespace Onsigbaar\Components\Commands;
 
 use Illuminate\Support\Str;
+use Onsigbaar\Components\Support\Config\GenerateConfigReader;
 use Onsigbaar\Components\Support\Stub;
-use Onsigbaar\Components\Traits\CanClearComponentsCache;
-use Onsigbaar\Components\Traits\ComponentCommandTrait;
+use Onsigbaar\Components\Traits\CanClearModulesCache;
+use Onsigbaar\Components\Traits\ModuleCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class SeedMakeCommand extends Command
+class SeedMakeCommand extends GeneratorCommand
 {
-    use ComponentCommandTrait, CanClearComponentsCache;
+    use ModuleCommandTrait, CanClearModulesCache;
 
     protected $argumentName = 'name';
 
@@ -20,14 +21,14 @@ class SeedMakeCommand extends Command
      *
      * @var string
      */
-    protected $name = 'apic:make-seed';
+    protected $name = 'component:make-seed';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate new seeder for the specified component.';
+    protected $description = 'Generate new seeder for the specified module.';
 
     /**
      * Get the console command arguments.
@@ -38,7 +39,7 @@ class SeedMakeCommand extends Command
     {
         return [
             ['name', InputArgument::REQUIRED, 'The name of seeder will be created.'],
-            ['component', InputArgument::OPTIONAL, 'The name of component will be used.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module will be used.'],
         ];
     }
 
@@ -64,12 +65,13 @@ class SeedMakeCommand extends Command
      */
     protected function getTemplateContents()
     {
-        $component = $this->laravel['components']->findOrFail($this->getComponentName());
+        $module = $this->laravel['modules']->findOrFail($this->getModuleName());
 
         return (new Stub('/seeder.stub', [
-            'NAME'      => $this->getSeederName(),
-            'COMPONENT' => $this->getComponentName(),
-            'NAMESPACE' => $this->getClassNamespace($component),
+            'NAME' => $this->getSeederName(),
+            'MODULE' => $this->getModuleName(),
+            'NAMESPACE' => $this->getClassNamespace($module),
+
         ]))->render();
     }
 
@@ -80,11 +82,11 @@ class SeedMakeCommand extends Command
     {
         $this->clearCache();
 
-        $path = $this->laravel['components']->getComponentPath($this->getComponentName());
+        $path = $this->laravel['modules']->getModulePath($this->getModuleName());
 
-        $seederPath = $this->laravel['components']->config('paths.generator.seed');
+        $seederPath = GenerateConfigReader::read('seeder');
 
-        return $path . $seederPath . '/' . $this->getSeederName() . '.php';
+        return $path . $seederPath->getPath() . '/' . $this->getSeederName() . '.php';
     }
 
     /**
@@ -97,5 +99,15 @@ class SeedMakeCommand extends Command
         $end = $this->option('master') ? 'DatabaseSeeder' : 'TableSeeder';
 
         return Str::studly($this->argument('name')) . $end;
+    }
+
+    /**
+     * Get default namespace.
+     *
+     * @return string
+     */
+    public function getDefaultNamespace() : string
+    {
+        return $this->laravel['modules']->config('paths.generator.seeder.path', 'Database/Seeders');
     }
 }

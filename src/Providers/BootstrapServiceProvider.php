@@ -11,7 +11,7 @@ class BootstrapServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app['components']->boot();
+        $this->app['modules']->boot();
     }
 
     /**
@@ -19,6 +19,6 @@ class BootstrapServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['components']->register();
+        $this->app['modules']->register();
     }
 }

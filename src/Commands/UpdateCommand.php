@@ -2,38 +2,54 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
-use Onsigbaar\Components\Traits\ComponentCommandTrait;
+use Illuminate\Console\Command;
+use Onsigbaar\Components\Traits\ModuleCommandTrait;
 use Symfony\Component\Console\Input\InputArgument;
 
-class UpdateCommand extends ComponentCommand
+class UpdateCommand extends Command
 {
-    use ComponentCommandTrait;
+    use ModuleCommandTrait;
 
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'apic:update';
+    protected $name = 'component:update';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update dependencies for the specified component or for all components.';
+    protected $description = 'Update dependencies for the specified module or for all modules.';
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        $this->laravel['components']->update($name = $this->getComponentName());
+        $name = $this->argument('module');
 
-        $this->info("Component [{$name}] updated successfully.");
+        if ($name) {
+            $this->updateModule($name);
+
+            return;
+        }
+
+        /** @var \Onsigbaar\Components\Module $module */
+        foreach ($this->laravel['modules']->getOrdered() as $module) {
+            $this->updateModule($module->getName());
+        }
+    }
+
+    protected function updateModule($name)
+    {
+        $this->line('Running for component: <info>' . $name . '</info>');
+
+        $this->laravel['modules']->update($name);
+
+        $this->info("Module [{$name}] updated successfully.");
     }
 
     /**
@@ -44,7 +60,7 @@ class UpdateCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::OPTIONAL, 'The name of component will be updated.'],
+            ['module', InputArgument::OPTIONAL, 'The name of module will be updated.'],
         ];
     }
 }

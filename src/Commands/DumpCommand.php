@@ -2,10 +2,10 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 
-class DumpCommand extends ComponentCommand
+class DumpCommand extends Command
 {
     /**
      * The console command name.
@@ -19,33 +19,31 @@ class DumpCommand extends ComponentCommand
      *
      * @var string
      */
-    protected $description = 'Dump-autoload the specified component or for all component.';
+    protected $description = 'Dump-autoload the specified module or for all module.';
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        $this->info('Generating optimized autoload components.');
+        $this->info('Generating optimized autoload modules.');
 
-        if ($component = $this->argument('component')) {
-            $this->dump($component);
+        if ($module = $this->argument('module')) {
+            $this->dump($module);
         } else {
-            foreach ($this->laravel['components']->all() as $component) {
-                $this->dump($component->getStudlyName());
+            foreach ($this->laravel['modules']->all() as $module) {
+                $this->dump($module->getStudlyName());
             }
         }
     }
 
-    public function dump($component)
+    public function dump($module)
     {
-        $component = $this->laravel['components']->findOrFail($component);
+        $module = $this->laravel['modules']->findOrFail($module);
 
-        $this->line("<comment>Running for component</comment>: {$component}");
+        $this->line("<comment>Running for module</comment>: {$module}");
 
-        chdir($component->getPath());
+        chdir($module->getPath());
 
         passthru('composer dump -o -n -q');
     }
@@ -58,7 +56,7 @@ class DumpCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::OPTIONAL, 'Component name.'],
+            ['module', InputArgument::OPTIONAL, 'Module name.'],
         ];
     }
 }

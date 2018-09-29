@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="onsigbaar Test Suite">
+        <testsuite name="Onsigbaar Components Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

@@ -2,40 +2,38 @@
 
 namespace Onsigbaar\Components\Commands;
 
-use Illuminate\Console\Command as ComponentCommand;
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 
-class DisableCommand extends ComponentCommand
+class DisableCommand extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'apic:disable';
+    protected $name = 'component:disable';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Disable the specified component.';
+    protected $description = 'Disable the specified module.';
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
-        $component = $this->laravel['components']->findOrFail($this->argument('component'));
+        $module = $this->laravel['modules']->findOrFail($this->argument('module'));
 
-        if ($component->enabled()) {
-            $component->disable();
+        if ($module->enabled()) {
+            $module->disable();
 
-            $this->info("Component [{$component}] disabled successful.");
+            $this->info("Module [{$module}] disabled successful.");
         } else {
-            $this->comment("Component [{$component}] has already disabled.");
+            $this->comment("Module [{$module}] has already disabled.");
         }
     }
 
@@ -47,7 +45,7 @@ class DisableCommand extends ComponentCommand
     protected function getArguments()
     {
         return [
-            ['component', InputArgument::REQUIRED, 'Component name.'],
+            ['module', InputArgument::REQUIRED, 'Module name.'],
         ];
     }
 }

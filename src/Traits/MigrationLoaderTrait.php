@@ -5,13 +5,13 @@ namespace Onsigbaar\Components\Traits;
 trait MigrationLoaderTrait
 {
     /**
-     * Include all migrations files from the specified component.
+     * Include all migrations files from the specified module.
      *
-     * @param string $component
+     * @param string $module
      */
-    protected function loadMigrationFiles($component)
+    protected function loadMigrationFiles($module)
     {
-        $path = $this->laravel['components']->getComponentPath($component) . $this->getMigrationGeneratorPath();
+        $path = $this->laravel['modules']->getModulePath($module) . $this->getMigrationGeneratorPath();
 
         $files = $this->laravel['files']->glob($path . '/*_*.php');
 
@@ -27,6 +27,6 @@ trait MigrationLoaderTrait
      */
     protected function getMigrationGeneratorPath()
     {
-        return $this->laravel['components']->config('paths.generator.migration');
+        return $this->laravel['modules']->config('paths.generator.migration');
     }
 }

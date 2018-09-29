@@ -2,28 +2,21 @@
 
 namespace Onsigbaar\Components\Process;
 
+use Onsigbaar\Components\Contracts\RepositoryInterface;
 use Onsigbaar\Components\Contracts\RunableInterface;
-use Onsigbaar\Components\Repository;
 
 class Runner implements RunableInterface
 {
     /**
-     * The component instance.
-     *
-     * @var \Onsigbaar\Components\Repository
+     * The module instance.
+     * @var RepositoryInterface
      */
-    protected $component;
+    protected $module;
 
-    /**
-     * The constructor.
-     *
-     * @param \Onsigbaar\Components\Repository $component
-     */
-    public function __construct(Repository $component)
+    public function __construct(RepositoryInterface $module)
     {
-        $this->component = $component;
+        $this->module = $module;
     }
-
 
     /**
      * Run the given command.

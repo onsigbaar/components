@@ -2,22 +2,24 @@
 
 namespace Onsigbaar\Components\Migrations;
 
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Collection;
-use Onsigbaar\Components\Component;
+use Onsigbaar\Components\Module;
+use Onsigbaar\Components\Support\Config\GenerateConfigReader;
 
 class Migrator
 {
     /**
-     * Pingpong Component instance.
+     * Pingpong Module instance.
      *
-     * @var \Onsigbaar\Components\Component
+     * @var \Onsigbaar\Components\Module
      */
-    protected $component;
+    protected $module;
 
     /**
      * Laravel Application instance.
      *
-     * @var \Illuminate\Foundation\Application.
+     * @var Application.
      */
     protected $laravel;
 
@@ -31,12 +33,12 @@ class Migrator
     /**
      * Create new instance.
      *
-     * @param \Onsigbaar\Components\Component $component
+     * @param \Onsigbaar\Components\Module $module
      */
-    public function __construct(Component $component)
+    public function __construct(Module $module)
     {
-        $this->component = $component;
-        $this->laravel   = $component->getLaravel();
+        $this->module = $module;
+        $this->laravel = $module->getLaravel();
     }
 
     /**
@@ -51,14 +53,16 @@ class Migrator
         if (is_string($database) && $database) {
             $this->database = $database;
         }
+
+        return $this;
     }
 
     /**
-     * @return Component
+     * @return Module
      */
-    public function getComponent()
+    public function getModule()
     {
-        return $this->component;
+        return $this->module;
     }
 
     /**
@@ -68,18 +72,18 @@ class Migrator
      */
     public function getPath()
     {
-        $config = $this->component->get('migration');
+        $config = $this->module->get('migration');
 
-        $path = (is_array($config) && array_key_exists('path', $config)) ? $config['path'] : config('components.paths.generator.migration');
+        $migrationPath = GenerateConfigReader::read('migration');
+        $path = (is_array($config) && array_key_exists('path', $config)) ? $config['path'] : $migrationPath->getPath();
 
-        return $this->component->getExtraPath($path);
+        return $this->module->getExtraPath($path);
     }
 
     /**
      * Get migration files.
      *
      * @param boolean $reverse
-     *
      * @return array
      */
     public function getMigrations($reverse = false)
@@ -93,9 +97,8 @@ class Migrator
             return [];
         }
 
-        $files = array_map(function($file) {
+        $files = array_map(function ($file) {
             return str_replace('.php', '', basename($file));
-
         }, $files);
 
         // Once we have all of the formatted file names we will sort them and since
@@ -205,7 +208,7 @@ class Migrator
     /**
      * Require in all the migration files in a given path.
      *
-     * @param array $files
+     * @param array  $files
      */
     public function requireFiles(array $files)
     {
@@ -218,11 +221,11 @@ class Migrator
     /**
      * Get table instance.
      *
-     * @return string
+     * @return \Illuminate\Database\Query\Builder
      */
     public function table()
     {
-        return $this->database ? $this->laravel['db']->connection($this->database)->table(config('database.migrations')) : $this->laravel['db']->table(config('database.migrations'));
+        return $this->laravel['db']->connection($this->database ?: null)->table(config('database.migrations'));
     }
 
     /**
@@ -248,7 +251,7 @@ class Migrator
     {
         return $this->table()->insert([
             'migration' => $migration,
-            'batch'     => $this->getNextBatchNumber(),
+            'batch' => $this->getNextBatchNumber(),
         ]);
     }
 
@@ -265,15 +268,18 @@ class Migrator
     /**
      * Get the last migration batch number.
      *
-     * @param array $migrations
-     *
+     * @param array|null $migrations
      * @return int
      */
-    public function getLastBatchNumber($migrations)
+    public function getLastBatchNumber($migrations = null)
     {
-        return $this->table()
-            ->whereIn('migration', $migrations)
-            ->max('batch');
+        $table = $this->table();
+
+        if (is_array($migrations)) {
+            $table = $table->whereIn('migration', $migrations);
+        }
+
+        return $table->max('batch');
     }
 
     /**
@@ -291,8 +297,8 @@ class Migrator
 
         $result = $query->orderBy('migration', 'desc')->get();
 
-        return collect($result)->map(function($item) {
-            return (array)$item;
+        return collect($result)->map(function ($item) {
+            return (array) $item;
         })->pluck('migration');
     }
 
