@@ -47,7 +47,7 @@
         "Onsigbaar\\Components\\LaravelModulesServiceProvider"
       ],
       "aliases": {
-        "Module": "Onsigbaar\\Components\\Facades\\Module"
+        "Component": "Onsigbaar\\Components\\Facades\\Module"
       }
     },
     "branch-alias": {
