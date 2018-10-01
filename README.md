@@ -15,7 +15,8 @@
 
 Modular/ component based development for Laravel. Based on [nWidart/laravel-modules](https://github.com/nWidart/laravel-modules). 
 
-Components [Docs](https://github.com/onsigbaar/components/wiki).
+Components v0.5 [Docs](https://anonymoussc.github.io/software-engineering/2018/10/10/components-v05-docs/).
+Components v0.6 [Docs](https://github.com/onsigbaar/components/wiki).
 
 ## Install
 
