@@ -47,7 +47,7 @@ abstract class ModulesServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom($configPath, 'modules');
         $this->publishes([
-            $configPath => config_path('modules.php'),
+            $configPath => config_path('component.php'),
         ], 'config');
     }
 
